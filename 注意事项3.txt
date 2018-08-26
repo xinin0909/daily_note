@@ -1,0 +1,136 @@
+时间模块 time
+
+    此模块提供了时间相关的函数，且一直可用
+
+时间简介
+
+    公元纪年是从公元 0000年1月1日0时开始的
+
+    计算机元年是从1970年1月1日0时开始的,此时时间为0,之后每过一秒时间+1
+
+    UTC 时间 (Coordinated Universal Time) 是从Greenwich时间开始计算的.
+    UTC 时间不会因时区问题而产生错误
+
+    DST 阳光节约时间(Daylight Saving Time)，又称夏令时, 是一个经过日照时间修正后的时间
+
+时间元组
+
+    时间元组是一个9个整型元素组成的,这九个元素自前至后依次为:
+        四位的年(如: 1993)
+        月 (1-12)
+        日 (1-31)
+        时 (0-23)
+        分 (0-59)
+        秒 (0-59)
+        星期几 (0-6, 周一是 0)
+        元旦开始日 (1-366)
+        夏令时修正时间 (-1, 0 or 1).
+    注：
+        如果年份值小于100,则会自动转换为加上1900后的值
+
+模块名: time
+时间模块用法：
+
+import time
+# 或
+from time import xxx
+# 或
+from time import *
+
+数据 	描述
+time.altzone 	夏令时时间与UTC时间差(秒为单位)
+time.daylight 	夏令时校正时间
+time.timezone 	本地区时间与UTC时间差(秒为单位)
+time.tzname 	时区名字的元组， 第一个名字为未经夏令时修正的时区名,
+第一个名字为经夏令时修正后的时区名
+
+注： CST为中国标准时间(China Standard Time UTC+8:00)
+函数名 	描述
+time.time() 	返回从计算机元年至当前时间的秒数的浮点数(UTC时间为准)
+time.sleep(secs) 	让程序按给定秒数的浮点数睡眠一段时间
+time.gmtime([secs]) 	用给定秒数转换为用UTC表达的时间元组（[]中括号表示可以省略）
+(缺省返回当前时间元组)
+time.asctime([tuple]) 	将时间元组转换为日期时间字符串
+time.mktime(tuple) 	将本地日期时间元组转换为新纪元秒数时间(UTC为准)
+time.localtime([secs]) 	将UTC秒数时间转换为日期元组（以本地时间为准)
+数学模块 math
+
+    模块名: math
+    注：
+        linux下为内建模块
+        Mac OS下为标准库模块
+
+数学模块用法：
+
+import math
+# 或
+from math import *
+
+数据 	描述
+math.e 	自然对数的底e
+math.pi 	圆周率pi
+函数名 	描述
+math.ceil(x) 	对x向上取整，比如x=1.2，返回2
+math.floor(x) 	对x向下取整，比如x=1.2，返回1
+math.sqrt(x) 	返回x的平方根
+math.factorial(x) 	求x的阶乘
+math.log(x[, base]) 	返回以base为底x的对数, 如果不给出base,则以自然对数e为底
+math.log10(x) 	求以10为底x的对数
+math.pow(x, y) 	返回 x**y (x的y次方)
+math.fabs(x) 	返回浮点数x的绝对值
+角度和弧度degrees互换 	
+math.degree(x) 	将弧度x转换为角度
+math.radians(x) 	将角度x转换为弧度
+三角函数 	
+math.sin(x) 	返回x的正弦(x为弧度)
+math.cos(x) 	返回x的余弦(x为弧度)
+math.tan(x) 	返回x的正切(x为弧度)
+math.asin(x) 	返回x的反正弦(返回值为为弧度)
+math.acos(x) 	返回x的反余弦(返回值为为弧度)
+math.atan(x) 	返回x的反正切(返回值为为弧度)随机模块 random
+作用：
+用于模拟或生成随机输出的模块.
+用法示意:
+
+import random as R
+
+函数名 	描述
+R.random() 	返回一个[0, 1) 之间的随机实数
+R.uniform(a,b) 	返回[a,b) 区间内的随机实数
+R.randrange([start,] stop[, step]) 	返回range(start,stop,step)中的随机数
+R.choice(seq) 	从序列中返回随意元素
+R.shuffle(seq[, random]) 	随机指定序列的顺序(乱序序列）
+R.sample(seq,n) 	从序列中选择n个随机且不重复的元素
+文件
+mode 模式字符的含义
+字符 	含义
+'r' 	以只读方式打开(默认)
+'w' 	以只写方式打开，删除原有文件内容(如果文件不存在，则创建该文件并以只写方式打开)
+'x' 	创建一个新文件, 并以写模式打开这个文件,如果文件存在则会产生"FileExistsError"错误
+'a' 	以只写文件打开一个文件，如果有原文件则追加到文件末尾
+'b' 	用二进制模式打开
+'t' 	文本文件模式打开 (默认)
+'+' 	为更新内容打开一个磁盘文件 (可读可写)
+
+    缺省模式是 'rt'
+    'w+b' 可以实现二进制随机读写，当打开文件时，文件内容将被清零
+    'r+b' 以二进制读和更新模式打开文件,打开文件时不会清空文件内容
+    'r+' 以文本模式读和更新模式打开文件,打开文件时不会清空文件内容
+
+python 文件常用方法:
+方法 	说明
+F.close() 	关闭文件(关闭后文件不能再读写会发生ValueError错误)
+F.readline() 	读取一行数据, 如果到达文件尾则返回空行
+F.readlines(max_chars=-1) 	返回每行字符串的列表,max_chars为最大字符(或字节)数
+F.writelines(lines) 	将字符串的列表或字符串的列表中的内容写入文件
+二进制文件操作方法 	
+F.read(size=-1) 	从一个文件流中最多读取size个字符(文本文件)或字节(二进制文件),如果不给出参数，则默认读取文件中全部的内容并返回
+F.write(text) 	写一个字符串到文件流中，返回写入的字符数(文本文件)或字节数(二进制文件)
+F.tell() 	返回当前文件流读写指针的绝对位置(字节为单位)
+F.seek(offset, whence=0) 	改变数据流读写指针的位置，返回新的绝对位置
+F.flush() 	把写入文件对象的缓存内容写入到磁盘
+	
+F.readable() 	判断这个文件是否可读,可读返回True,否则返回False
+F.writable() 	判断这个文件是否可写,可写返回True,否则返回False
+F.seekable() 	返回这个文件对象是否支持随机定位
+F.truncate(pos = None) 	剪掉 自pos位置之后的数据，返回新的文件长度

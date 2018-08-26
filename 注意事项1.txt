@@ -1,0 +1,156 @@
+﻿bytearray 的方法:
+方法 	说明
+B.clear() 			清空
+B.append(n) 		追加一个字节(n为0-255的整数)
+B.remove(value) 		   删除第一个出现的字节,如果没有出现，则产生ValueError错误
+B.reverse() 		字节的顺序进行反转
+B.decode(encoding='utf-8') 	
+B.find(sub[, start[, end]]) 
+字典的方法
+函数 	说明
+D代表字典对象 	
+D.clear() 	清空字典
+D.pop(key) 	移除键，同时返回此键所对应的值
+D.copy() 	返回字典D的副本,只复制一层(浅拷贝)
+D.update(D2) 	将字典 D2 合并到D中，如果键相同，则此键的值取D2的值作为新值
+D.get(key, default) 	返回键key所对应的值,如果没有此键，则返回default
+	
+D.keys() 	返回可迭代的 dict_keys 集合对象
+D.values() 	返回可迭代的 dict_values 值对象
+D.items() 	返回可迭代的 dict_items 对象
+
+Python3中常用的列表方法（method)
+
+    见:help(list)
+
+方法 	意义
+L.index(v [, begin[, end]]) 	返回对应元素的索引下标, begin为开始索引，end为结束索引,当 value 不存在时触发ValueError错误
+L.insert(index, obj) 	将某个元素插放到列表中指定的位置
+L.count(x) 	返回列表中元素的个数
+L.remove(x) 	从列表中删除第一次出现在列表中的值
+L.copy() 	复制此列表（只复制一层，不会复制深层对象)
+L.append(x) 	向列表中追加单个元素
+L.extend(lst) 	向列表追加另一个列表
+L.clear() 	清空列表,等同于 L[:] = []
+L.sort(reverse=False) 	将列表中的元素进行排序，默认顺序按值的小到大的顺序排列
+L.reverse() 	列表的反转，用来改变原列表的先后顺序
+L.pop([index]) 	删除索引对应的元素，如果不加索引，默认删除最后元素，同时返回删除元素的引用关系
+PEP8编码规范
+代码编排
+
+    使用4空格缩进，不使用Tab,更不允许用Tab和空格混合缩进
+    每行最大长度最大79字节，超过部分使用反斜杠折行
+    类和全局函数定义间隔两个空行,类内方法定义间隔一个空行.其它地方可以不加空行。
+
+文档编排
+
+    其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。
+    不要在一句import中导入多个模块，比如不推荐import os, sys。
+    尽可能用import XX 而不采用from XX import YY引用库,因为可能出现名字冲突。
+
+空格的使用
+
+    各种右括号前不用加空格
+    逗号、冒号、分号前不要加空格。
+    函数的左括号前不要加空格。如func(1)。
+    序列的左括号前不要加空格。如list[2]。
+    操作符左右各加一个空格，不要为了对齐增加空格。
+    函数默认参数使用的赋值符左右省略空格。
+    不要将多条语句写在同一行，尽管使用‘;’允许。
+    if/for/while语句中，即使执行语句只有一句，也必须另起一行
+
+原则：避免不必要的空格
+Python全部的错误类型
+错误类型 	说明
+	
+ZeroDivisionError 	除(或取模)零 (所有数据类型)
+ValueError 	传入无效的参数
+AssertionError 	断言语句失败
+StopIteration 	迭代器没有更多的值
+IndexError 	序列中没有此索引(index)
+IndentationError 	缩进错误
+OSError 	输入/输出操作失败
+ImportError 	导入模块/对象失败
+NameError 	未声明/初始化对象 (没有属性)
+AttributeError 	对象没有这个属性
+	
+GeneratorExit 	生成器(generator)发生异常来通知退出
+TypeError 	对类型无效的操作
+KeyboardInterrupt 	用户中断执行(通常是输入^C)
+OverflowError 	数值运算超出最大限制
+FloatingPointError 	浮点计算错误
+BaseException 	所有异常的基类
+SystemExit 	解释器请求退出
+Exception 	常规错误的基类
+StandardError 	所有的内建标准异常的基类
+ArithmeticError 	所有数值计算错误的基类
+EOFError 	没有内建输入,到达EOF 标记
+EnvironmentError 	操作系统错误的基类
+WindowsError 	系统调用失败
+LookupError 	无效数据查询的基类
+KeyError 	映射中没有这个键
+MemoryError 	内存溢出错误(对于Python 解释器不是致命的)
+UnboundLocalError 	访问未初始化的本地变量
+ReferenceError 	弱引用(Weak reference)试图访问已经垃圾回收了的对象
+RuntimeError 	一般的运行时错误
+NotImplementedError 	尚未实现的方法
+SyntaxError Python 	语法错误
+TabError 	Tab 和空格混用
+SystemError 	一般的解释器系统错误
+UnicodeError 	Unicode 相关的错误
+UnicodeDecodeError 	Unicode 解码时的错误
+UnicodeEncodeError 	Unicode 编码时错误
+UnicodeTranslateError 	Unicode 转换时错误
+以下为警告类型 	
+Warning 	警告的基类
+DeprecationWarning 	关于被弃用的特征的警告
+FutureWarning 	关于构造将来语义会有改变的警告
+OverflowWarning 	旧的关于自动提升为长整型(long)的警告
+PendingDeprecationWarning 	关于特性将会被废弃的警告
+RuntimeWarning 	可疑的运行时行为(runtime behavior)的警告
+SyntaxWarning 	可疑的语法的警告
+UserWarning 	用户代码生成的警告
+Python运算符优先级
+运算符 	描述
+	
+(), [], {key: value}, {} 	元组表达式、列表表达式、字典表达式、集合表达式
+x[index], x[index:index],
+x(arguments...), x.attribute 	索引，切片，
+函数调用，属性引用
+	
+** 	指数 (最高优先级)
+~, +, - 	按位翻转, 正号,负号
+*, /, %, // 	乘，除，取模和地板除
++, - 	加法, 减法
+>>, << 	右移, 左移运算符
+& 	位与(AND)
+^ 	位异或(XOR)
+| 	位或(OR)
+<=, <, >, >=, ==, !=,
+is, is not, in, not in 	比较,身份测试,成员资格测试
+not 	布尔非
+and 	布尔与
+or 	布尔或
+if - else 	条件表达式
+lambda 	lambda表达式
+Python3 集合的方法
+方法 	意义
+S.add(e) 	在集合中添加一个新的元素e；如果元素已经存在，则不添加
+S.remove(e) 	从集合中删除一个元素，如果元素不存在于集合中，则会产生一个KeyError错误
+S.discard(e) 	从集合S中移除一个元素e,在元素e不存在时什么都不做;
+S.clear() 	清空集合内的所有元素
+S.copy() 	将集合进行一次浅拷贝
+S.pop() 	从集合S中删除一个随机元素;如果此集合为空，则引发KeyError异常
+S.update(s2) 	等同于 S|=s2 s=s|s2
+	
+S.difference(s2) 	S - s2 补集运算，返回存在于在S中，但不在s2中的所有元素的集合
+S.difference_update(s2) 	等同于 S -= s2
+S.intersection(s2) 	等同于 S & s2
+S.intersection_update(s2) 	等同于S &= s2
+S.isdisjoint(s2) 	如果S与s2交集为空返回True,非空则返回False
+S.issubset(s2) 	如果S与s2交集为非空返回True,空则返回False
+S.issuperset(...) 	如果S为s2的子集返回True,否则返回False
+S.symmetric_difference(s2) 	返回对称补集, 等同于 S ^ s2
+S.symmetric_difference_update(s2) 	等同于 S ^= s2, 用 S 与 s2 的对称补集更新 S
+S.union(s2) 	生成 S 与 s2的全集, 等同于 S
+
